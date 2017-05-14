@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { TreeModule } from 'angular-tree-component';
 import {
   NgModule,
   ApplicationRef
@@ -14,6 +15,12 @@ import {
   RouterModule,
   PreloadAllModules
 } from '@angular/router';
+
+import { BasicTreeComponent } from './lib/js/tree/basictree/basictree.component';
+import { FullTreeComponent } from './lib/js/tree/fulltree/fulltree.component';
+import { TemplatesComponent } from './lib/js/tree/templates/templates.component';
+import { FilterComponent } from './lib/js/tree/filter/filter.component';
+import { FieldsComponent } from './lib/js/tree/fields/fields.component';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -54,7 +61,12 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    BasicTreeComponent,
+    FullTreeComponent,
+    TemplatesComponent,
+    FieldsComponent,
+    FilterComponent
   ],
   /**
    * Import Angular's modules.
@@ -63,6 +75,9 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    FormsModule,
+    HttpModule,
+    TreeModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**

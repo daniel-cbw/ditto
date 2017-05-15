@@ -16,7 +16,7 @@
         <span class="pull-right">{{ childrenCount(node) }}</span>
         <button (click)="go($event)">Custom Action</button>
         <button
-          (click)="addNode(tree, node)">
+          (click)="addNode( tree, treemodel, node, '' )">
           Add Node
         </button><p>lorem</p>
       </ng-template>

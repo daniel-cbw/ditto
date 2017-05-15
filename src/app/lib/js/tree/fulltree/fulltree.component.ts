@@ -103,10 +103,10 @@ export class FullTreeComponent {
     //   name: 'child2.2',
     //   subTitle: 'new and improved2'
     // },
-    {
-      name: 'child2.1',
-      subTitle: 'new and improved'
-    }
+    // {
+    //   name: 'child2.1',
+    //   subTitle: 'new and improved'
+    // }
   ];
 
   getChildren(node:any) {
@@ -119,15 +119,41 @@ export class FullTreeComponent {
     });
   }
 
-  addNode(tree, node) {
+  addNode( tree, treemodel, node, placement ) {
 
-    if ( !node.isCollapsed ) {
-      tree.treeModel.getNodeById(node.id).data.children.push({
-        name: 'a new child',
-        hasChildren: []
-      });
+    let DOMhierarchy: Object;
+    let activeNodes: Object = tree.treeModel.activeNodes;
+    
+    var kyz = Object.keys(activeNodes);
+    let activeNode: Object;
+
+    // only get first active;
+    activeNode = activeNodes[ kyz[ 0 ] ];
+
+    console.log(activeNode);
+
+    switch(placement) { 
+     case "section": { 
+        console.log("Excellent"); 
+        break; 
+     } 
+     case "step": { 
+        console.log("Good"); 
+        break; 
+     } 
+     case "component": {
+        console.log("Fair"); 
+        break;    
+     } 
     }
-   
+
+    //if ( !node.isCollapsed ) {
+      node.data.children.push({
+        name: 'a new child',
+        hasChildren: true,
+      });
+    //}
+   console.log(node);
     tree.treeModel.update();
   }
 
@@ -159,7 +185,7 @@ export class FullTreeComponent {
     animateAcceleration: 1.2
   }
   onEvent(event) {
-    console.log(event);
+    //console.log(event);
   }
 
   go($event) {
